@@ -11,6 +11,7 @@ public final class EnderTownyDynamp extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         Bukkit.getLogger().info(pp + " pp");
+        getCommand("penis").setExecutor(new PenisCommand());
 
 
     }
