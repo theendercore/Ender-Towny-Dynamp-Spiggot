@@ -1,0 +1,7 @@
+name: EnderTownyDynampPlugin
+version: '${project.version}'
+main: com.theendercore.endertownydynamp.EnderTownyDynamp
+api-version: 1.18
+authors: [ Ender ]
+description: pp
+website: emlo40.com
