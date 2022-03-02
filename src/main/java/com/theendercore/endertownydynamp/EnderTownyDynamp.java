@@ -1,6 +1,6 @@
 package com.theendercore.endertownydynamp;
 
-import com.palmergames.bukkit.towny.Towny;
+import com.palmergames.bukkit.towny.TownyUniverse;
 import com.palmergames.bukkit.util.Version;
 import org.bukkit.Bukkit;
 import org.bukkit.event.HandlerList;
@@ -13,6 +13,8 @@ public final class EnderTownyDynamp extends JavaPlugin {
     public static final String pp = "[Ender's Dynamp Towny Plugin]";
     private static final Version requiredTownyVersion = Version.fromString("0.97.5.0");
     public static String townyVersion;
+    public static TownyUniverse townyUniverse = TownyUniverse.getInstance();
+
     @Override
     public void onEnable() {
         final PluginManager pm = getServer().getPluginManager();
@@ -24,19 +26,16 @@ public final class EnderTownyDynamp extends JavaPlugin {
             return;
         }
 
+
         getLogger().info("Towny version " + townyVersion + " found.");
 
-
         if (!townyVersionCheck(townyVersion)) {
-            getLogger().severe("Towny version does not meet required version: " + requiredTownyVersion.toString());
+            getLogger().severe("Towny version does not meet required version: " + requiredTownyVersion);
             disable();
             return;
         }
 
-
         getCommand("penis").setExecutor(new PenisCommand());
-
-
     }
 
     private boolean townyVersionCheck(String version) {
@@ -44,11 +43,7 @@ public final class EnderTownyDynamp extends JavaPlugin {
     }
 
     private void disable() {
-        unregisterEvents();
-        getLogger().severe("TownyFlight Disabled.");
-    }
-
-    private void unregisterEvents() {
+        getLogger().severe("Ender's Dynamp Towny Disabled.");
         HandlerList.unregisterAll(this);
     }
 
