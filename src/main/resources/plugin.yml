@@ -5,9 +5,10 @@ api-version: 1.18
 authors: [ Ender ]
 description: pp
 website: emlo40.com
+depend: [Towny]
 commands:
   penis:
     description:
       tell you penis.
     usage: /<command>
-    aliases:
+    aliases: Penis

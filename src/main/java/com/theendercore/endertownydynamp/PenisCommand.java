@@ -12,6 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import static com.theendercore.endertownydynamp.EnderTownyDynamp.pp;
+import static com.theendercore.endertownydynamp.EnderTownyDynamp.townyVersion;
 
 public class PenisCommand implements CommandExecutor {
     @Override
@@ -25,8 +26,23 @@ public class PenisCommand implements CommandExecutor {
 
         if ((cmd.getName().equalsIgnoreCase("penis")) && (player.getName().equals("TheEnderCore"))) {
 
-            Bukkit.getLogger().info(pp + " Penis Comand");
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            Bukkit.getLogger().info(pp + " Penis Command");
+
+//            dumpJson();
+
+            player.sendMessage(townyVersion);
+
+            return true;
+        } else {
+            player.sendMessage("You are not TheEnderCore!\nYou are  :" + player.getName());
+        }
+
+        return true;
+    }
+
+
+    private void dumpJson(){
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
             String filePath = "pp.json";
             Towny Penis = new Towny("pp", 45, "Cock");
             FileWriter writer = null;
@@ -44,14 +60,5 @@ public class PenisCommand implements CommandExecutor {
                     }
                 }
             }
-
-            player.sendMessage("pp");
-
-            return true;
-        } else {
-            player.sendMessage("You are not TheEnderCore!\nYou are  :" + player.getName());
-        }
-
-        return true;
     }
 }
