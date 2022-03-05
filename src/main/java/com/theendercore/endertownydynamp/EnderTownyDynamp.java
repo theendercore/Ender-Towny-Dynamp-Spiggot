@@ -8,6 +8,8 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
+
 public final class EnderTownyDynamp extends JavaPlugin {
 
     public static final String pp = "[Ender's Dynamp Towny Plugin]";
@@ -17,6 +19,11 @@ public final class EnderTownyDynamp extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        File theDir = new File("./plugins/EnderTownyDynamp");
+        if (!theDir.exists()) {
+            theDir.mkdirs();
+        }
+
         final PluginManager pm = getServer().getPluginManager();
         Plugin p = pm.getPlugin("Towny");
 
